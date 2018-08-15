@@ -7,10 +7,7 @@ Documentation APIs - http://localhost:8080/documentation
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-[![Build Status][travis-badge]][travis-url]
-
-[travis-badge]: https://travis-ci.org/FernandoCagale/hapi-api-boilerplate.svg?branch=master
-[travis-url]: https://travis-ci.org/FernandoCagale/hapi-api-boilerplate
+!https://travis-ci.org/lucascoelhosilva/bot-reminder.svg?branch=master!:https://travis-ci.org/lucascoelhosilva/bot-reminder
 
 
 [![js-semistandard-style](https://cdn.rawgit.com/flet/semistandard/master/badge.svg)](https://github.com/Flet/semistandard)
