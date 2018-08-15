@@ -1,0 +1,32 @@
+{
+    "name": "API.AI Telegram integration",
+    "description": "Api.ai Telegram integration allows you to create Telegram bots with natural language understanding based on Api.ai technology.",
+    "repository": "https://github.com/lucascoelhosilva/reminder",
+    "keywords": [
+        "api.ai",
+        "telegram",
+        "natural language"
+    ],
+    "env": {
+        "APP_NAME": {
+            "description": "Copy App Name here",
+            "value": ""
+        },
+        "TELEGRAM_TOKEN": {
+            "description": "Telegram bot token",
+            "value": ""
+        },
+        "APIAI_ACCESS_TOKEN": {
+            "description": "Client access token for Api.ai",
+            "value": ""
+        },
+        "APIAI_LANG": {
+            "description": "Agent language",
+            "value": "pt-br",
+            "required": false
+        }
+    },
+    "engines": {
+        "node": "5.10.1"
+    }
+}
