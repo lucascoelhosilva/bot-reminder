@@ -1,5 +1,12 @@
-Hapi-API-boilerplate Node(8.1.0)
+# reminder
+
+Bot criado para estudos
 ===
+
+Documentation APIs - http://localhost:8080/documentation
+
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 [![Build Status][travis-badge]][travis-url]
 
 [travis-badge]: https://travis-ci.org/FernandoCagale/hapi-api-boilerplate.svg?branch=master

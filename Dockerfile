@@ -1,5 +1,5 @@
 # Set the base image to Ubuntu
-FROM node:6.10
+FROM node:8
 
 # Create app directory
 RUN mkdir -p /usr/src/app
@@ -14,7 +14,7 @@ RUN npm install -g nodemon
 COPY package.json /usr/src/app/
 
 # Install app dependencies
-RUN npm cache clean && npm install --silent --progress=false
+RUN npm cache clean --force && npm install --silent --progress=false
 
 # Bundle app source
 COPY . /usr/src/app

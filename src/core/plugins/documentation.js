@@ -12,7 +12,7 @@ exports.register = (server, options, next) => {
       'version': Pack.version,
       'termsOfService': 'https://github.com/glennjones/hapi-swagger/',
       'contact': {
-        'email': 'fernando.b.cagale@gmail.com'
+        'email': 'lucascoelhosilvacs@gmail.com'
       },
       'license': {
         'name': 'MIT',
