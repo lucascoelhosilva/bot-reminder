@@ -27,7 +27,7 @@ exports.register = (server, options, next) => {
   server.register({
     register: require('hapi-slap'),
     options: {
-      url: `redis://${config.host}:${config.port}/0`,
+      url: config.url,
       expireIn: 300
     }
   }, (err) => {
