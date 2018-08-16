@@ -43,7 +43,6 @@ function getRedis () {
   const config = {
     host: process.env['REDIS_PORT_6379_TCP_ADDR'] || process.env['REDIS_HOST'] || '127.0.0.1',
     port: process.env['REDIS_PORT_6379_TCP_PORT'] || process.env['REDIS_PORT'] || '6379',
-    username: process.env['REDIS_USER'],
     password: process.env['REDIS_PASS'],
   };
 
