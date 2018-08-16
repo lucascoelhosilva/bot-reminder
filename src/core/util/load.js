@@ -13,7 +13,7 @@ dotenv.load({silent: true});
 function getServer () {
   const config = {
     host: process.env['SERVER_HOST'],
-    port: process.env['SERVER_PORT'] || '8080'
+    port: process.env.PORT || '8080'
   };
 
   return config;

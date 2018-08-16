@@ -5,8 +5,6 @@ const boot = require('./bin/boot');
 const load = require('./util/load');
 const core = require('./util/core-function');
 
-const apiai = require('apiai');
-
 const fs = Promise.promisifyAll(require('fs'));
 
 module.exports = { start };
