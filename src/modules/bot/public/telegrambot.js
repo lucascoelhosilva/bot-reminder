@@ -183,9 +183,9 @@ module.exports = class TelegramBot {
         });
     }
 
-    static createResponse(resp, code, message) {
+    static createResponse(reply, code, message) {
         var data = "status: " + {code: code, message: message};
-        return resp(data).status(code);
+        return reply(data).status(code);
     }
 
     static isDefined(obj) {
