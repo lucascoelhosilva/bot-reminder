@@ -4,9 +4,7 @@ const redis = require('redis');
 const load = require('./util/load');
 
 const config = load.getRedis();
-const client = redis.createClient(config.port, config.host);
-client.auth(config.password);
-
+const client = redis.createClient(config.port, config.host, config.password);
 
 client.on('connect', () => {
   console.log('===> connected redis');
