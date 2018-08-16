@@ -40,22 +40,7 @@ module.exports = {
 async function read(request, res) {
   try {
       bot.processMessage(request, res);
-  } catch (errorData) {
-      /* 
-        * i dont know a way to respond with error data for version 17.
-        * I tried using : return {message, statusCode, error} directly.
-        *  
-        */
-       let err = new Error();
-       if(errorData.name == 'Error while processing'){
-           
-           err.message =  errorData.message
-           err.statusCode = 422;
-           err.code = 422;
-           err.error = errorData.name;
-           
-       }
-       console.log("err==", err);
-       return err;
+  } catch (err) {
+    return reply.badImplementationCustom(err);
   }
 }
