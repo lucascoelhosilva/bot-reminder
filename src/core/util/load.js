@@ -44,6 +44,7 @@ function getRedis () {
     host: process.env['REDIS_PORT_6379_TCP_ADDR'] || process.env['REDIS_HOST'] || '127.0.0.1',
     port: process.env['REDIS_PORT_6379_TCP_PORT'] || process.env['REDIS_PORT'] || '6379',
     password: process.env['REDIS_PASS'],
+    url: process.env['REDIS_URL'],
   };
 
   return config;
