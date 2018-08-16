@@ -23,7 +23,6 @@ const botConfig = new TelegramBotConfig(
     APIAI_LANG,
     TELEGRAM_TOKEN);
 
-console.log(botConfig);
 botConfig.devConfig = DEV_CONFIG;
 
 const bot = new TelegramBot(botConfig, baseUrl);
