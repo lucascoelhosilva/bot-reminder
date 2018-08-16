@@ -21,7 +21,8 @@ function getServer () {
 
 function getDatabase () {
   const env = process.env['NODE_ENV'] || 'development';
-
+  
+  console.log(process.env);
   const config = {
     port: process.env['POSTGRES_PORT_5432_TCP_PORT'] || process.env['BD_PORT'] || '5434',
     host: process.env['POSTGRES_PORT_5432_TCP_ADDR'] || process.env['BD_HOST'] || '127.0.0.1',
