@@ -24,6 +24,56 @@
             "description": "Agent language",
             "value": "pt-br",
             "required": false
+        },
+        "BD_PORT": {
+            "description": "Port Database",
+            "value": "pt-br",
+            "required": false
+        },
+        "BD_HOST": {
+            "description": "Host Database",
+            "value": "pt-br",
+            "required": false
+        },
+        "BD_USER": {
+            "description": "User Database",
+            "value": "pt-br",
+            "required": false
+        },
+        "BD_PASS": {
+            "description": "Password Database",
+            "value": "pt-br",
+            "required": false
+        },
+        "BD_NAME": {
+            "description": "Name Database",
+            "value": "pt-br",
+            "required": false
+        },
+        "REDIS_HOST": {
+            "description": "Host Redis",
+            "value": "pt-br",
+            "required": false
+        },
+        "REDIS_PORT": {
+            "description": "Port Redis",
+            "value": "pt-br",
+            "required": false
+        },
+        "REDIS_USER": {
+            "description": "User Redis",
+            "value": "pt-br",
+            "required": false
+        },
+        "REDIS_PASS": {
+            "description": "Password Redis",
+            "value": "pt-br",
+            "required": false
+        },
+        "REDIS_URL": {
+            "description": "URL Redis",
+            "value": "pt-br",
+            "required": false
         }
     },
     "engines": {
