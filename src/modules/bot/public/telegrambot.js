@@ -184,7 +184,7 @@ module.exports = class TelegramBot {
     }
 
     static createResponse(resp, code, message) {
-        return resp.status(code).json({
+        return resp.code(code).json({
             status: {
                 code: code,
                 message: message
