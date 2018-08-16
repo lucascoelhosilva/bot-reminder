@@ -37,9 +37,9 @@ module.exports = {
   read: read
 };
 
-async function read(request, res) {
+async function read(request, reply) {
   try {
-      bot.processMessage(request, res);
+      bot.processMessage(request, reply);
   } catch (err) {
     return reply.badImplementationCustom(err);
   }
