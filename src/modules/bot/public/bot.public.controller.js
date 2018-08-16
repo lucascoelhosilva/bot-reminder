@@ -41,6 +41,7 @@ async function read(request, reply) {
   try {
       bot.processMessage(request, reply);
   } catch (err) {
-    return reply.badImplementationCustom(err);
+      console.log('err', err);
+    // return reply.badImplementationCustom(err);
   }
 }
