@@ -5,7 +5,6 @@ const Pack = require('../../../package');
 
 exports.register = (server, options, next) => {
   const swaggerOptions = {
-    schemes: ['http'],
     info: {
       'title': 'API Documentation',
       'description': 'API documentation.',
