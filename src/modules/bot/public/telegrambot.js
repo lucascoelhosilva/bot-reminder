@@ -184,12 +184,8 @@ module.exports = class TelegramBot {
     }
 
     static createResponse(resp, code, message) {
-        return resp.code(code).json({
-            status: {
-                code: code,
-                message: message
-            }
-        });
+        var data = "status: " + {code: code, message: message};
+        return resp(data).status(code);
     }
 
     static isDefined(obj) {
