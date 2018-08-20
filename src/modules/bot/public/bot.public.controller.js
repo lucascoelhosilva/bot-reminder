@@ -38,12 +38,10 @@ module.exports = {
 };
 
 async function read(request, reply) {
-    console.log('request', request);
-    console.log(reply, reply);
     try {
-        //   bot.processMessage(request, reply);
+          bot.processMessage(request, reply);
     } catch (err) {
         console.log('err', err);
-        // return reply.badImplementationCustom(err);
+        return reply.badImplementationCustom(err);
     }
 }
