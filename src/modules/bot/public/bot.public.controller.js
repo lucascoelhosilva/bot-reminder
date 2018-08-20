@@ -34,14 +34,16 @@ bot.start(() => {
 
 
 module.exports = {
-  read: read
+    read: read
 };
 
 async function read(request, reply) {
-  try {
-      bot.processMessage(request, reply);
-  } catch (err) {
-      console.log('err', err);
-    // return reply.badImplementationCustom(err);
-  }
+    console.log('request', request);
+    console.log(reply, reply);
+    try {
+        //   bot.processMessage(request, reply);
+    } catch (err) {
+        console.log('err', err);
+        // return reply.badImplementationCustom(err);
+    }
 }
