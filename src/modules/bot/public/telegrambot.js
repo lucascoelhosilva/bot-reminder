@@ -78,7 +78,7 @@ module.exports = class TelegramBot {
     }
 
     processMessage(req, res) {
-        console.log("body", req.body);
+        console.log("body", req);
         if (this._botConfig.devConfig) {
             console.log("body", req.body);
         }
