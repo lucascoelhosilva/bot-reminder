@@ -78,6 +78,8 @@ module.exports = class TelegramBot {
     }
 
     processMessage(req, res) {
+        console.log('req', req);
+        console.log('res', res);
         if (this._botConfig.devConfig) {
             console.log("body", req.body);
         }
@@ -95,6 +97,8 @@ module.exports = class TelegramBot {
 
             let messageText = msg.text;
 
+            console.log('============CHATID============');
+            console.log('============messageText============');
             console.log(chatId, messageText);
 
             if (chatId && messageText) {
@@ -165,6 +169,7 @@ module.exports = class TelegramBot {
     }
 
     reply(msg) {
+        console.log('msg', msg);
         // https://core.telegram.org/bots/api#sendmessage
         request.post(this._telegramApiUrl + '/sendMessage', {
             json: msg
