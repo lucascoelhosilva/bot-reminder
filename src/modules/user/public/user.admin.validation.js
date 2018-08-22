@@ -1,6 +1,6 @@
 'use strict';
 
-const Schema = require('../user.schema');
+const Schema = require('./user.schema');
 const Joi = require('joi');
 
 module.exports = {

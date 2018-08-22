@@ -1,6 +1,6 @@
 'use strict';
 
-const Schema = require('../task.schema');
+const Schema = require('./task.schema');
 const Joi = require('joi');
 
 const schema = Schema.getSchema();
@@ -10,7 +10,8 @@ module.exports = {
   destroy: destroy,
   create: create,
   update: update,
-  list: list
+  list: list,
+  read: read
 };
 
 function destroy () {
@@ -51,5 +52,16 @@ function update () {
 function list () {
   return {
     query: query
+  };
+}
+
+function read () {
+  return {
+    headers: schema.fields,
+    params: {
+      id: schema
+        .id
+        .required()
+    }
   };
 }

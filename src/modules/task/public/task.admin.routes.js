@@ -7,71 +7,83 @@ exports.register = (server, options, next) => {
   server.route([
     {
       method: 'GET',
-      path: '/admin/task',
+      path: '/task/{id}',
+      config: {
+        description: 'GET task',
+        notes: 'GET id task',
+        tags: ['api', 'public'],
+        auth: false,
+        plugins: {
+          slap: {
+            rule: 'task-id'
+          }
+        },
+        handler: Controller.read,
+        validate: Validator.read()
+      }
+    },
+    {
+      method: 'GET',
+      path: '/task',
       config: {
         description: 'GET task',
         notes: 'GET task',
-        tags: ['api', 'admin'],
-        auth: {
-          scope: ['admin']
-        },
+        tags: ['api', 'task'],
+        // auth: {
+        //   scope: ['admin']
+        // },
+        auth: false,
         handler: Controller.list,
         validate: Validator.list()
       }
     },
     {
       method: 'DELETE',
-      path: '/admin/task/{id}',
+      path: '/task/{id}',
       config: {
         description: 'DELETE task',
         notes: 'DELETE task',
-        tags: ['api', 'admin'],
+        tags: ['api', 'task'],
         plugins: {
           slap: {
             clear: ['task', 'task-id']
           }
         },
-        auth: {
-          scope: ['admin']
-        },
+        auth: false,
         handler: Controller.destroy,
         validate: Validator.destroy()
       }
     },
     {
       method: 'PUT',
-      path: '/admin/task/{id}',
+      path: '/task/{id}',
       config: {
         description: 'PUT task',
         notes: 'PUT task',
-        tags: ['api', 'admin'],
+        tags: ['api', 'task'],
         plugins: {
           slap: {
             clear: ['task', 'task-id']
           }
         },
-        auth: {
-          scope: ['admin']
-        },
+        auth: false,
         handler: Controller.update,
         validate: Validator.update()
       }
     },
     {
       method: 'POST',
-      path: '/admin/task',
+      path: '/task',
       config: {
         description: 'POST task',
         notes: 'POST task',
-        tags: ['api', 'admin'],
+        tags: ['api', 'task'],
         plugins: {
           slap: {
             clear: ['task', 'task-id']
           }
         },
-        auth: {
-          scope: ['admin']
-        },
+        auth: false,
         handler: Controller.create,
         validate: Validator.create()
       }

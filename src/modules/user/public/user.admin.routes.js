@@ -7,67 +7,59 @@ exports.register = (server, options, next) => {
   server.route([
     {
       method: 'GET',
-      path: '/admin/user',
+      path: '/user',
       config: {
         description: 'GET user',
         notes: 'Return based on token',
-        tags: ['api', 'admin'],
-        auth: {
-          scope: ['admin']
-        },
+        tags: ['api', 'user'],
+        auth: false,
         handler: Controller.read,
         validate: Validator.read()
       }
     },
     {
       method: 'POST',
-      path: '/admin/user',
+      path: '/user',
       config: {
         description: 'POST user',
         notes: 'Save a user',
-        tags: ['api', 'admin'],
-        auth: {
-          scope: ['admin']
-        },
+        tags: ['api', 'user'],
+        auth: false,
         handler: Controller.create,
         validate: Validator.create()
       }
     },
     {
       method: 'POST',
-      path: '/admin/user/logout',
+      path: '/user/logout',
       config: {
         description: 'POST user logout',
         notes: 'Logout a user',
-        tags: ['api', 'admin'],
-        auth: {
-          scope: ['admin']
-        },
+        tags: ['api', 'user'],
+        auth: false,
         handler: Controller.logout,
         validate: Validator.logout()
       }
     },
     {
       method: 'PUT',
-      path: '/admin/user',
+      path: '/user',
       config: {
         description: 'PUT user',
         notes: 'Update based on token',
-        tags: ['api', 'admin'],
-        auth: {
-          scope: ['admin']
-        },
+        tags: ['api', 'user'],
+        auth: false,
         handler: Controller.update,
         validate: Validator.update()
       }
     },
     {
       method: 'POST',
-      path: '/admin/user/login',
+      path: '/user/login',
       config: {
         description: 'POST user',
         notes: 'User login to the token generation',
-        tags: ['api', 'admin'],
+        tags: ['api', 'user'],
         auth: false,
         handler: Controller.login,
         validate: Validator.login()

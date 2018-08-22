@@ -6,16 +6,17 @@ const TelegramBotConfig = require('./telegrambotconfig');
 const DEV_CONFIG = process.env.DEVELOPMENT_CONFIG == 'true';
 
 const APP_NAME = process.env.APP_NAME;
-const APIAI_ACCESS_TOKEN = process.env.APIAI_ACCESS_TOKEN;
-const APIAI_LANG = process.env.APIAI_LANG;
-const TELEGRAM_TOKEN = process.env.TELEGRAM_TOKEN;
+const APIAI_ACCESS_TOKEN = "850819d19655415598ebda9e19721e1c";
+const APIAI_LANG = "pt-br";
+const TELEGRAM_TOKEN = "561283378:AAFsdw_1syNvQLyq_1LDI7SAv01J-SXOXrg";
 
 var baseUrl = "";
 if (APP_NAME) {
     // Heroku case
     baseUrl = `https://${APP_NAME}.herokuapp.com`;
 } else {
-    console.error('Set up the url of your service here and remove exit code!');
+    baseUrl = "https://8241d86e.ngrok.io";
+    // console.error('Set up the url of your service here and remove exit code!');
 }
 
 const botConfig = new TelegramBotConfig(
@@ -34,14 +35,19 @@ bot.start(() => {
 
 
 module.exports = {
-    read: read
+    read: read,
+    list: list
 };
 
 async function read(request, reply) {
     try {
-          bot.processMessage(request, reply);
+        bot.processMessage(request, reply);
     } catch (err) {
         console.log('err', err);
         return reply.badImplementationCustom(err);
     }
+}
+
+async function list(request, reply) {
+    return reply('OKKK!')
 }

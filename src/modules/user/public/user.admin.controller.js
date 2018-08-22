@@ -1,7 +1,7 @@
 'use strict';
 
 const jwt = require('jsonwebtoken');
-const client = require('../../../core/client.redis');
+const client = require('../../core/client.redis');
 
 module.exports = {
   create: create,

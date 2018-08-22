@@ -3,6 +3,7 @@
 const apiai = require('apiai');
 const uuid = require('node-uuid');
 const request = require('request');
+const server = require('../../../core/server');
 
 module.exports = class TelegramBot {
 
@@ -78,12 +79,14 @@ module.exports = class TelegramBot {
     }
 
     processMessage(req, res) {
-        console.log("body", req.payload);
         if (this._botConfig.devConfig) {
-            console.log("body", req.body);
+            console.log("body", req.payload);
         }
 
-        let updateObject = req.body;
+        console.log(server.route(routes));
+
+        
+        let updateObject = req.payload;
 
         if (updateObject && updateObject.message) {
             let msg = updateObject.message;
@@ -96,9 +99,7 @@ module.exports = class TelegramBot {
 
             let messageText = msg.text;
 
-            console.log('============CHATID============');
-            console.log('============messageText============');
-            console.log(chatId, messageText);
+            // console.log(chatId, messageText);
 
             if (chatId && messageText) {
                 if (!this._sessionIds.has(chatId)) {
@@ -111,8 +112,6 @@ module.exports = class TelegramBot {
                     });
 
                 apiaiRequest.on('response', (response) => {
-
-                    console.log('action', response.result);
 
                     var action = response.result.action;
                     if (action == 'tarefas') {
@@ -188,7 +187,7 @@ module.exports = class TelegramBot {
     }
 
     static createResponse(reply, code, message) {
-        var obj = {code: code,message: message};
+        var obj = { code: code, message: message };
         return reply(obj);
     }
 
@@ -202,5 +201,20 @@ module.exports = class TelegramBot {
         }
 
         return obj != null;
+    }
+}
+
+async function getTasks() {
+    try {
+        const injectOptions = {
+            method: 'GET',
+            url: '/task',
+          }
+      
+        const response = await server.inject(injectOptions)
+
+        return response;
+    } catch (err) {
+        console.log(err);
     }
 }

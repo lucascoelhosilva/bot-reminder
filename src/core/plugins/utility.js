@@ -27,7 +27,7 @@ exports.register = (server, options, next) => {
   server.register({
     register: require('hapi-slap'),
     options: {
-      url: config.url,
+      url: `redis://${config.host}:${config.port}/0`,
       expireIn: 300
     }
   }, (err) => {
@@ -55,7 +55,7 @@ exports.register = (server, options, next) => {
     }
   });
 
-  function loadModels (models, cb) {
+  function loadModels(models, cb) {
     models.map((m) => {
       let model = db.sequelize['const'](m);
       db[model.name] = model;
@@ -64,11 +64,11 @@ exports.register = (server, options, next) => {
     return cb(null);
   }
 
-  function loadRoutes (routes, cb) {
+  function loadRoutes(routes, cb) {
     let registerRoutes = routes.map((route) => {
       return {
         register: require(route),
-        options: {database: db}
+        options: { database: db }
       };
     });
 

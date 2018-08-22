@@ -4,6 +4,7 @@ module.exports = {
   create: create,
   update: update,
   list: list,
+  read: read,
   destroy: destroy
 };
 
@@ -81,6 +82,38 @@ async function list (request, reply) {
     };
 
     const values = await model.scope({method: ['user', credentials]}).findAndCountAll(request.fieldsAll(options));
+
+    return reply(values).header('allowing-fields', request.fieldsHeaders(options));
+  } catch (err) {
+    return reply.badImplementationCustom(err);
+  }
+}
+
+async function read (request, reply) {
+  try {
+    const model = request.database.Task;
+    const taskId = request.params.id;
+
+    const options = {
+      attributes: ['id', 'title'],
+      where: {
+        id: taskId
+      }
+    };
+
+    const cache = await request.getCache(taskId);
+
+    if (cache) {
+      return reply(cache).header('allowing-fields', request.fieldsHeaders(options));
+    }
+
+    const values = await model.find(request.fieldsAll(options));
+
+    request.addCache(values, taskId);
+
+    if (!values) {
+      return reply.notFound();
+    }
 
     return reply(values).header('allowing-fields', request.fieldsHeaders(options));
   } catch (err) {

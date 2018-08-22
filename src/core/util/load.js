@@ -22,7 +22,6 @@ function getServer () {
 function getDatabase () {
   const env = process.env['NODE_ENV'] || 'development';
   
-  console.log('PROCESS.ENV', process.env);
   const config = {
     port: process.env['POSTGRES_PORT_5432_TCP_PORT'] || process.env['BD_PORT'] || '5434',
     host: process.env['POSTGRES_PORT_5432_TCP_ADDR'] || process.env['BD_HOST'] || '127.0.0.1',
@@ -41,10 +40,8 @@ function getDatabase () {
 
 function getRedis () {
   const config = {
-    host: process.env['REDIS_PORT_6379_TCP_ADDR'] || process.env['REDIS_HOST'] || '127.0.0.1',
-    port: process.env['REDIS_PORT_6379_TCP_PORT'] || process.env['REDIS_PORT'] || '6379',
-    password: process.env['REDIS_PASS'],
-    url: process.env['REDIS_URL'],
+    host: process.env['REDIS_PORT_6379_TCP_ADDR'] || '127.0.0.1',
+    port: process.env['REDIS_PORT_6379_TCP_PORT'] || '6379'
   };
 
   return config;
